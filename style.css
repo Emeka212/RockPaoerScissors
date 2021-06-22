@@ -1,0 +1,322 @@
+@import url('https://fonts.google.com/specimen/Barlow+Semi+Condensed');
+*,
+*::after,
+*::before{
+	box-sizing: border-box;
+	text-transform: uppercase;
+	color: #fff;
+}
+li{list-style: none;}
+body{
+	padding: 20px 10px;
+	margin: 0;
+	background:  #182343;
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: "Barlow Semi Condensed", Arial;
+}
+/*===================================================
+FOR THE SCORE DIV
+=================================================*/
+.score_conn{
+	width: 500px;
+	display: flex;
+	padding: 20px;
+	align-items: center;
+	border-radius: 10px;
+	justify-content: space-between;
+	border: 2px solid hsl(217, 16%, 45%);
+}
+.score_conn .title{
+	font-size: 25px;
+}
+.score_conn .score{
+	padding: 10px 25px 5px;
+	background: #fff;
+	display: flex;
+	border-radius: 10px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.score_conn .score .sub_txt{
+	color: hsl(229, 64%, 46%);
+}
+.score_conn .score .num{
+	height: 58px;
+	font-size: 50px;
+	color: hsl(229, 25%, 31%);
+}
+/*===============================================
+THE MAIN GAME DIVS BOTH PICKING AND WINING
+============================================*/
+.game_conn{
+	width: 100%;
+	height: 500px;
+	display: flex;
+	margin-top: 20px;
+	align-items: center;
+	justify-content: center;
+}
+/*======================
+FOR PICKING
+======================*/
+.game_conn .play{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 65px 60px 60px;
+	position: relative;
+}
+.game_conn .play img.triangle{
+	z-index: -2;
+}
+.paper,
+.scissors,
+.rock{
+	width: 150px;
+	height: 150px;
+	display: flex;
+	cursor: pointer;
+	background: #fff;
+	position: absolute;
+	align-items: center;
+	border-radius: 100px;
+	justify-content: center;
+	border: 20px solid hsl(230, 89%, 62%);
+	box-shadow: inset 0px 7px 2px #3b436366;
+}
+.paper::after,
+.scissors::after,
+.rock::after{
+	content: "";
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: -20px;
+	border-radius: 100px;
+	bottom: -28px;
+	z-index: -1;
+}
+/* BOX SHADOW TO INDICATE WHO WIN */
+.winner{
+	box-shadow: 0px -5px 0px 50px #2b3956,
+							0px -5px 0px 100px #263554,
+							0px -5px 0px 150px #223351 ;
+}
+/*ENDS HERE*/
+.paper{
+	top: 0;
+	left: 0;
+}
+.paper::after{
+	background: #2543bd;
+}
+.scissors{
+	top: 0;
+	right: 0;
+	border-color: hsl(39, 89%, 49%);
+}
+.scissors::after{
+	background: #c96d1a;
+}
+.rock{
+	left: 32%;
+  border-color: hsl(349, 71%, 52%);
+}
+.rock::after{
+	background: #9e1735;
+}
+/*=================
+DECIDING WHO WON
+===================*/
+.game_conn .who_won{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	display: none;
+}
+.game_conn .who_won .me,
+.game_conn .who_won .com,
+.game_conn .who_won .decide{
+	display: flex;
+	padding: 0 20px;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.game_conn .who_won .me b,
+.game_conn .who_won .com b,
+.game_conn .who_won .decide b{
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+.game_conn .who_won .com .com_pick,
+.game_conn .who_won .me .my_pick{
+	border-radius: 100px;
+	z-index: -2;
+}
+.game_conn .who_won .me .my_pick .paper,
+.game_conn .who_won .com .com_pick .paper,
+.game_conn .who_won .me .my_pick .scissors,
+.game_conn .who_won .com .com_pick .scissors,
+.game_conn .who_won .me .my_pick .rock,
+.game_conn .who_won .com .com_pick .rock{
+  position: relative;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+.game_conn .who_won .decide b{
+	font-size: 30px;
+	letter-spacing: 2px;
+}
+.game_conn .who_won .decide button{
+	padding: 15px 40px;
+	border-radius: 10px;
+	border: none;
+	color: #000;
+	outline: none;
+	cursor: pointer;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+.game_conn .who_won .decide button:hover{
+	color: hsl(349, 71%, 52%);
+}
+/*================================================
+BUTTON TO SHOW THE RULE OF THE GAME
+============================================*/
+button.rules_btn{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	outline: none;
+	border-radius: 10px;
+	letter-spacing: 1px;
+	border: 2px solid hsl(217, 16%, 45%);
+	background: transparent;
+	padding: 10px 40px;
+	cursor: pointer;
+}
+/*================================================
+THE RULE OF THE GAME ITSELF
+=================================================*/
+.rules_conn{
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	position: fixed;
+	transition: 0.5s;
+  transform: scale(0);
+	align-items: center;
+	background: #0d142494;
+  justify-content: center;
+}
+/* DISPLAY RULE BOX WHEN RULE BTN IS CLICKED */
+.open_rules{
+  transform: scale(1.0);
+}
+/* ENDS HERE */
+.rules_conn .rules{
+  width: 400px;
+  height: 400px;
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+.rules_conn .rules .header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.rules_conn .rules .header b{
+	font-size: 30px;
+	color: hsl(229, 25%, 31%);
+}
+.rules_conn .rules .header img.close_rules_btn{
+	cursor: pointer;
+}
+.rules_conn .rules .img_rule{
+	display: flex;
+	margin-top: 30px;
+	align-items: center;
+	justify-content: center;
+}
+/*=======================================================
+A LITTLE BIT OF THE CREATOR AND THE MUCK-UP DESIGN INFO
+=======================================================*/
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+/*=====================================================
+MOBILE RESPONSIVENESS
+======================================================*/
+@media screen and (max-width: 500px){
+	/*==============================
+	FOR THE SCORE DIV
+	===============================*/
+	.score_conn{
+		width: 100%;
+	}
+	/*======================
+	FOR PICKING
+	======================*/
+	.game_conn .play{
+		width: 100%;
+	}
+	.rock{
+		left: 29%;
+	}
+	/* BOX SHADOW TO INDICATE WHO WIN */
+	.winner{
+		box-shadow: 0px 1px 0px 20px #2b3956,
+								0px 1px 0px 40px #263554,
+								0px 1px 0px 60px #223351 ;
+	}
+	/*ENDS HERE*/
+	/*================================================
+	DECIDING WHO WON
+	============================================*/
+	.game_conn .who_won{
+		position: relative;
+		height: 550px;
+		margin-bottom: 50px;
+	}
+	.game_conn .who_won .decide{
+		position: absolute;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		bottom: 0;
+	}
+	.game_conn .who_won .decide b{
+		font-size: 50px;
+		text-align: center;
+		width: 100vw;
+	}
+	.game_conn .who_won .decide button{
+		width: 250px;
+	}
+	.game_conn .who_won .com .com_pick,
+	.game_conn .who_won .me .my_pick{
+		transform: scale(0.9);
+	}
+	/*================================================
+	BUTTON TO SHOW THE RULE OF THE GAME
+	============================================*/
+	button.rules_btn{
+		position: relative;
+		margin: 70px 0;
+	}
+  /*================================================
+	THE RULE OF THE GAME ITSELF
+	=================================================*/
+	.rules_conn .rules{
+	  width: 90%;
+	}
+}

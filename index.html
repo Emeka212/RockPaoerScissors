@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <!--=======================================================
+    FOR THE SCORE DIV
+    ======================================================-->
+  <div class="score_conn">
+    <div class="title">
+      <b>rock</b><br>
+      <b>papper</b><br>
+      <b>scissors</b><br>
+    </div>
+    <div class="score">
+      <b class=" sub_txt">score</b>
+      <b class="num"></b>
+    </div>
+  </div>
+  <!--======================================================
+    THE MAIN GAME DIVS BOTH PICKING AND WINING
+   =======================================================-->
+  <div class="game_conn">
+    <!--==================
+      FOR PICKING
+    ===================-->
+     <div class="play">
+
+      <div class="paper_one">
+        <div class="paper" title="Paper">
+         <img src="images/icon-paper.svg" alt="paper_icon">
+       </div>
+      </div>
+
+      <div class="scissors_one">
+        <div class="scissors" title="Scissors">
+         <img src="images/icon-scissors.svg" alt="scissors_icon">
+        </div>
+      </div>
+
+      <div class="rock_one">
+        <div class="rock" title="Rock">
+         <img src="images/icon-rock.svg" alt="rock_icon">
+        </div>
+      </div>
+       
+       <img src="images/bg-triangle.svg" class="triangle" alt="triangle_icon">
+     </div>
+     <!--=================
+      DECIDING WHO WON
+      ====================-->
+     <div class="who_won">
+
+       <div class="me">
+         <b>you picked</b>
+         <div class="my_pick"></div>
+       </div>
+
+       <div class="decide">
+         <b class="who_win"></b>
+         <button class="play_again">play again</button>
+       </div>
+
+       <div class="com">
+         <b>com picked</b>
+         <div class="com_pick"></div>
+       </div>
+       
+     </div>
+  </div>
+  <!--================================================
+    BUTTON TO SHOW THE RULE OF THE GAME
+   ================================================-->
+  <button class="rules_btn">rules</button>
+  <!--===============================================
+   THE RULE OF THE GAME ITSELF
+  ==================================================-->
+  <div class="rules_conn">
+    <div class="rules">
+      <div class="header">
+        <b>rules</b>
+        <img class="close_rules_btn" src="images/icon-close.svg" alt="close_icon">
+      </div>
+      <div class="img_rule">
+        <img src="images/image-rules.svg" alt="rule_icon">
+      </div>
+    </div>
+  </div>
+  <!-- <img src="design/original/desktop-step-1.jpg"> -->
+  <!--==================================================
+    A LITTLE BIT OF THE CREATOR AND THE MUCK-UP DESIGN INFO
+   ======================================================-->
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+<!-- <img src="design/original/desktop-step-4-lose.jpg"> -->
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
